@@ -57,11 +57,16 @@ class LoginViewController: UIViewController {
             }
             else {
                   
-                let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+                //let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
                 
-                self.view.window?.rootViewController = homeViewController
+                //self.view.window?.rootViewController = homeViewController
+                //self.view.window?.makeKeyAndVisible()
+                
+                let tabVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.tabViewController) as? TabViewController
+                
+                self.view.window?.rootViewController = tabVC
                 self.view.window?.makeKeyAndVisible()
-                
+
                 }
                 
             }

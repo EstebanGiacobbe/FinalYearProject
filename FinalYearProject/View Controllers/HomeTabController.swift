@@ -1,5 +1,5 @@
 //
-//  TabViewController.swift
+//  HomeTabController.swift
 //  FinalYearProject
 //
 //  Created by Esteban Giacobbe on 24/02/2020.
@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-class TabViewController: UITabBarController{
-
-override func viewDidLoad() {
-    super.viewDidLoad()
-
+class HomeTabController : UINavigationController{
+    
+    override func viewDidLoad(){
+        super.viewDidLoad()
+        
+        
     }
+    
 }
-
