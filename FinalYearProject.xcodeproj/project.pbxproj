@@ -20,6 +20,7 @@
 		5B9FB95F240203EB00386C53 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FB95E240203EB00386C53 /* Utilities.swift */; };
 		5B9FB96224020DD600386C53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9FB96124020DD600386C53 /* GoogleService-Info.plist */; };
 		5B9FB9642402821100386C53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FB9632402821100386C53 /* Constants.swift */; };
+		5B9FB968240486C200386C53 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FB967240486C200386C53 /* TabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		5B9FB95E240203EB00386C53 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		5B9FB96124020DD600386C53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B9FB9632402821100386C53 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5B9FB967240486C200386C53 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		EB76D6832BEA79B163F7C859 /* Pods_FinalYearProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FinalYearProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +114,7 @@
 				5B9FB9572401F73600386C53 /* SignUpViewController.swift */,
 				5B9FB9592401F76200386C53 /* LoginViewController.swift */,
 				5B9FB95B2401F78300386C53 /* HomeViewController.swift */,
+				5B9FB967240486C200386C53 /* TabViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				5B9FB9582401F73600386C53 /* SignUpViewController.swift in Sources */,
 				5B9FB95A2401F76200386C53 /* LoginViewController.swift in Sources */,
 				5B9FB9642402821100386C53 /* Constants.swift in Sources */,
+				5B9FB968240486C200386C53 /* TabViewController.swift in Sources */,
 				5B9FB9462401F5BD00386C53 /* SceneDelegate.swift in Sources */,
 				5B9FB95C2401F78300386C53 /* HomeViewController.swift in Sources */,
 			);
