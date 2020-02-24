@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1086716115773-55a8u18p0mr61dasbeec4jv71g6absk4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1086716115773-55a8u18p0mr61dasbeec4jv71g6absk4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCF6F97tus_PR9fn_YVy2w_rkUkRBFOph4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1086716115773</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.estebangiacobbe.FinalYearProject</string>
+	<key>PROJECT_ID</key>
+	<string>finalyearproject-57447</string>
+	<key>STORAGE_BUCKET</key>
+	<string>finalyearproject-57447.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1086716115773:ios:28a8aab5c243f4bd4fa354</string>
+	<key>DATABASE_URL</key>
+	<string>https://finalyearproject-57447.firebaseio.com</string>
+</dict>
+</plist>
