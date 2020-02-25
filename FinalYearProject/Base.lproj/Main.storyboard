@@ -225,12 +225,17 @@
                         <viewLayoutGuide key="safeArea" id="oHl-ap-OlT"/>
                     </view>
                     <navigationItem key="navigationItem" id="gUu-kB-yvw">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="diL-gL-Ect">
+                            <connections>
+                                <action selector="logout:" destination="QWw-VU-pcG" id="xwm-AR-cOh"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dkn-do-nuh"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4M-ZE-lnC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4700" y="-94.419642857142847"/>
+            <point key="canvasLocation" x="4780" y="-94"/>
         </scene>
         <!--Item-->
         <scene sceneID="0E1-Ay-JC7">
@@ -260,10 +265,10 @@
             </objects>
             <point key="canvasLocation" x="3790" y="621"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Nav View Controller-->
         <scene sceneID="V2q-g3-xZj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OvQ-yr-w5S" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavViewController1" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OvQ-yr-w5S" customClass="NavViewController" customModule="FinalYearProject" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WHZ-XA-3Is">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -284,6 +289,7 @@
                 <tabBarController storyboardIdentifier="TabViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="yCu-LA-Gt5" customClass="TabViewController" customModule="FinalYearProject" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T8U-IC-YRV">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -308,7 +314,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="QWw-VU-pcG" kind="relationship" relationship="rootViewController" id="KAZ-43-aTh"/>
+                        <segue destination="QWw-VU-pcG" kind="relationship" relationship="rootViewController" id="4Ej-hy-dVG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cro-hY-J9G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class ViewController: UIViewController {
 
@@ -18,6 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         setUpElements()
+        authenticateUser()
         
     }
     
@@ -26,6 +29,21 @@ class ViewController: UIViewController {
         //style elements
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleHollowButton(loginButton)
+        
+        
+    }
+    
+    func authenticateUser(){
+        
+        if Auth.auth().currentUser != nil {
+            DispatchQueue.main.async {
+                let tabVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.tabViewController) as? TabViewController
+                
+                self.view.window?.rootViewController = tabVC
+                self.view.window?.makeKeyAndVisible()
+                
+            }
+        }
         
         
     }
