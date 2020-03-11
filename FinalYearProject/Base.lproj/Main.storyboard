@@ -127,7 +127,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="kLc-Rn-GVL">
             <objects>
-                <viewController id="2Zo-k2-pX2" customClass="SignUpViewController" customModule="FinalYearProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2Zo-k2-pX2" customClass="SignUpViewController" customModule="FinalYearProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0lh-kd-1iC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -210,8 +210,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to page 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqz-df-JRc">
-                                <rect key="frame" x="132" y="438" width="150.5" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqz-df-JRc">
+                                <rect key="frame" x="207" y="448" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -219,8 +219,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Uqz-df-JRc" firstAttribute="centerX" secondItem="FN0-rH-a1f" secondAttribute="centerX" id="gLm-aR-ane"/>
-                            <constraint firstItem="Uqz-df-JRc" firstAttribute="centerY" secondItem="FN0-rH-a1f" secondAttribute="centerY" id="yHE-Tn-g1p"/>
+                            <constraint firstItem="Uqz-df-JRc" firstAttribute="centerX" secondItem="FN0-rH-a1f" secondAttribute="centerX" id="LEi-bp-lM0"/>
+                            <constraint firstItem="Uqz-df-JRc" firstAttribute="centerY" secondItem="FN0-rH-a1f" secondAttribute="centerY" id="LK3-lU-dSn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oHl-ap-OlT"/>
                     </view>
@@ -232,10 +232,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dkn-do-nuh"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="Uqz-df-JRc" id="xOT-7I-pGx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4M-ZE-lnC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4780" y="-94"/>
+            <point key="canvasLocation" x="4779.7101449275369" y="-94.419642857142847"/>
         </scene>
         <!--Item-->
         <scene sceneID="0E1-Ay-JC7">

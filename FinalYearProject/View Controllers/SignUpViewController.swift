@@ -24,7 +24,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
     
-    
+    //var uid = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +102,8 @@ class SignUpViewController: UIViewController {
                     //reference to the firestore object
                     let db = Firestore.firestore()
                     
+                    //self.uid = result!.user.uid
+                    
                     db.collection("users").addDocument(data: ["firstname":firstName, "lastname": lastName, "uid": result!.user.uid]) { (error) in
                         if error != nil {
                             //show error
@@ -134,6 +137,9 @@ class SignUpViewController: UIViewController {
         view.window?.rootViewController = homeViewController
         view.window?.makeKeyAndVisible()
         
+        
     }
+    
+    
 
 }

@@ -11,5 +11,6 @@ target 'FinalYearProject' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
+	
 
 end

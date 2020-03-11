@@ -7,46 +7,27 @@
 //
 
 import UIKit
+import FirebaseFirestore
 import Firebase
 
 
 class HomeViewController: UIViewController {
 
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
+   
+    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+          loadToDo()
+        }
 
         // Do any additional setup after loading the view.
-    }
     
-  //  @objc func handleSignOut(){
-    //    let alertcontroller = UIAlertController(title: nil, message:"Are you sure you want to sign out?", preferredStyle: .actionSheet)
-     //   alertcontroller.addAction(UIAlertAction(title: "Sign Out",style: .destructive,handler: { (_)in self.logout()
-            
-       // }))
-        //alertcontroller.addAction(UIAlertAction(title: "cancel", style: .cancel,handler: nil))
-        //present(alertcontroller, animated: true,completion: nil)
-    
-    //func logout(){
-            
-      //      do {
-                
-        //        try Auth.auth().signOut()
-          //      let VC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.viewController) as? ViewController
-                
-           //     self.view.window?.rootViewController = VC
-            //    self.view.window?.makeKeyAndVisible()
-                    
-
-                
-         //   } catch let error {
-          //      print("Error", error)
-                
-            //}
-            
-        //}
-        
-
-    //}
     
     @IBAction func logout(_ sender: Any) {
         
@@ -63,9 +44,26 @@ class HomeViewController: UIViewController {
             } catch let error{
                 print("error",error)
             
-            }
+        }
             
         }
-        
-    }
+    
+    func loadToDo(){
+        let docRef = Firestore.firestore().collection("Tasks").document("Nk1okAiVIKVChsuLdMmF")
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                 //let dataDescription2 = document.data().map(String.init(describing:)) ?? "nil"
+                let property = document.get("Description")
+                self.welcomeLabel.text = property as? String
+            } else{
+                
+                print("Document does not exist")
+            }
+
+        }
+            
+        }
+   
+}
+
 
