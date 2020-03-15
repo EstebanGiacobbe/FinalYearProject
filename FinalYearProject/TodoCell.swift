@@ -13,10 +13,13 @@ class TodoCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var todoLabel: UILabel!
+    @IBOutlet weak var taskLabelVC: UIView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        taskLabelVC.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

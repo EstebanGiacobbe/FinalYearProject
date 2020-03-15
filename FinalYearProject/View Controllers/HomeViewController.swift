@@ -34,7 +34,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         todoTV.delegate = self
         todoTV.dataSource = self
-        todoTV.rowHeight = 80
+        todoTV.rowHeight = 100
+        
+        
         
         tasksCollectionRef = Firestore.firestore().collection("Tasks")
         
