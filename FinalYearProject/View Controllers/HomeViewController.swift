@@ -26,9 +26,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 
     
-    @IBOutlet weak var welcomeLabel: UILabel!
     
-   
     @IBOutlet weak var todoTV: UITableView!
     
     override func viewDidLoad() {
@@ -41,6 +39,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tasksCollectionRef = Firestore.firestore().collection("Tasks")
         
         loadToDo()
+        
         }
 
         // Do any additional setup after loading the view.
@@ -66,41 +65,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     
     func loadToDo(){
-        //let docRef = Firestore.firestore().collection("Tasks").document("Nk1okAiVIKVChsuLdMmF")
-        //docRef.getDocument { (document, error) in
-          //  if let document = document, document.exists {
-                 //let dataDescription2 = document.data().map(String.init(describing:)) ?? "nil"
-            //    let property = document.get("Description")
-              //  self.welcomeLabel.text = property as? String
-            //} else{
+        
+        tasksCollectionRef.addSnapshotListener { (querySnapshot, error) in
+            guard let snapshot = querySnapshot else {return}
+            
+            snapshot.documentChanges.forEach {
                 
-              //  print("Document does not exist")
-            //}
-
-        //
-        tasksCollectionRef.getDocuments { (snapshot, error) in
-            if let err = error {
-                debugPrint("Error fetching docs \(err)")
-            }
-            else {
-                guard let snap = snapshot else { return }
-                for document in snap.documents{
-                    let data = document.data()
+                diff in
+                
+                if (diff.type == .added) {
+                    
+                    let data = diff.document.data()
                     
                     let description = data["Description"] as? String ?? ""
 
                     let name = data["name"] as? String ?? ""
+                    
                     let newTask = tasks(name: name, description: description)
                     self.tasksArray.append(newTask)
-                }
-                DispatchQueue.main.async {
-                    self.todoTV.reloadData()
+                    
+                    DispatchQueue.main.async {
+                        self.todoTV.reloadData()
+                    }
                 }
             }
         }
-        
-            
-        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -113,12 +103,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TodoCell
         
+        
+        cell.nameLabel.text = tasksArray[indexPath.row].name
         cell.todoLabel.text = tasksArray[indexPath.row].description
+        
         
         return cell
     }
     
-   
 }
 
 

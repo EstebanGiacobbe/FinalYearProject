@@ -11,6 +11,7 @@ import UIKit
 class TodoCell: UITableViewCell {
     
     
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var todoLabel: UILabel!
     
     override func awakeFromNib() {
