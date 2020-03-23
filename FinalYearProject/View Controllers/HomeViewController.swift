@@ -12,7 +12,9 @@ import Firebase
 
 struct tasks {
     
+    
     var name, description: String
+    var documentID: String
     
 }
 
@@ -20,7 +22,7 @@ struct tasks {
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-    
+    var iD : String?
     var tasksArray = [tasks]()
     private var tasksCollectionRef: CollectionReference!
     
@@ -83,8 +85,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
                     let name = data["name"] as? String ?? ""
                     
-                    let newTask = tasks(name: name, description: description)
+                    let documentID = diff.document.documentID
+                    
+                    
+                    let newTask = tasks(name: name, description: description, documentID: documentID)
                     self.tasksArray.append(newTask)
+                    
+                    self.iD = documentID
                     
                     DispatchQueue.main.async {
                         self.todoTV.reloadData()
@@ -112,6 +119,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //tableView.deselectRow(at: indexPath, animated: true)
+        
+        performSegue(withIdentifier: "showdetail", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        if let destination = segue.destination as? UpdateViewController {
+            
+            destination.documentID = tasksArray[todoTV.indexPathForSelectedRow!.row].documentID
+            
+            destination.descriptions = tasksArray[todoTV.indexPathForSelectedRow!.row].description
+            
+        }
+    }
+    
     
 }
 

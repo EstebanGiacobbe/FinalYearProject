@@ -281,13 +281,59 @@
                     </navigationItem>
                     <connections>
                         <outlet property="todoTV" destination="drm-gf-nkn" id="etS-jG-3B5"/>
+                        <segue destination="Xwk-Os-qFb" kind="show" identifier="showdetail" id="m1H-1S-3Xo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4M-ZE-lnC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4779.7101449275369" y="-94.419642857142847"/>
         </scene>
-        <!--Item-->
+        <!--Update View Controller-->
+        <scene sceneID="p2h-re-joC">
+            <objects>
+                <viewController storyboardIdentifier="UpdateVC" id="Xwk-Os-qFb" customClass="UpdateViewController" customModule="FinalYearProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ME7-2a-iug">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9q-SU-5PX">
+                                <rect key="frame" x="20" y="673" width="267" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLv-Zq-FhY">
+                                <rect key="frame" x="0.0" y="88" width="414" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.13837756849315069" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BW4-M7-I5t">
+                                <rect key="frame" x="0.0" y="192" width="414" height="263"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="P54-G1-meX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bzr-xO-hoE"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="fLv-Zq-FhY" id="EtB-hG-hcf"/>
+                        <outlet property="documentIDLabel" destination="I9q-SU-5PX" id="XFI-E2-Zjh"/>
+                        <outlet property="textLabel" destination="BW4-M7-I5t" id="Ulx-jU-XuD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Po8-kR-WBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6000.0000000000009" y="265.84821428571428"/>
+        </scene>
+        <!--Calendar-->
         <scene sceneID="0E1-Ay-JC7">
             <objects>
                 <viewController id="OJb-S9-DxU" sceneMemberID="viewController">
@@ -309,7 +355,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qP6-3K-oBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="eLD-f6-JyP"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" id="eLD-f6-JyP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKF-9b-kaC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -352,11 +398,11 @@
             </objects>
             <point key="canvasLocation" x="2714" y="188"/>
         </scene>
-        <!--Item-->
+        <!--Tasks-->
         <scene sceneID="BKs-24-mTS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="18p-r0-IQz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="aH8-y0-rbl"/>
+                    <tabBarItem key="tabBarItem" title="Tasks" id="aH8-y0-rbl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pjg-h3-Et2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -427,7 +473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EyN-HS-OAX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5889.8550724637689" y="-94.419642857142847"/>
+            <point key="canvasLocation" x="6001" y="-468"/>
         </scene>
     </scenes>
 </document>
