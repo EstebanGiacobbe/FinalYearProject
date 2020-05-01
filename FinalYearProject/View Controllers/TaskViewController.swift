@@ -19,12 +19,20 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     
+    @IBOutlet weak var informationTextView: UITextView!
+    
+    
     @IBOutlet weak var popUpView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         popUpView.layer.cornerRadius = 10
+        
+        informationTextView.layer.cornerRadius = 5
+        informationTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
+        informationTextView.layer.borderWidth = 0.5
+        informationTextView.clipsToBounds = true
         
         db = Firestore.firestore()
 
@@ -36,8 +44,10 @@ class TaskViewController: UIViewController {
         
         let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        let information = informationTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
         var ref: DocumentReference? = nil
-        ref = db.collection("Tasks").addDocument(data: ["Description":description, "name": name]) { err in
+        ref = db.collection("Tasks").addDocument(data: ["Description":description, "name": name, "text" : information]) { err in
             if let err = err{
                 print ("error adding document: \(err)")
             } else {

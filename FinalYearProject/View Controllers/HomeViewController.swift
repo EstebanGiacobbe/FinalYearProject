@@ -15,6 +15,7 @@ struct tasks {
     
     var name, description: String
     var documentID: String
+    var text: String
     
 }
 
@@ -87,11 +88,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let documentID = diff.document.documentID
                     
+                    let text = data["text"] as? String ?? ""
                     
-                    let newTask = tasks(name: name, description: description, documentID: documentID)
+                    
+                    let newTask = tasks(name: name, description: description, documentID: documentID, text:text)
                     self.tasksArray.append(newTask)
                     
-                    self.iD = documentID
+                    //self.iD = documentID
                     
                     DispatchQueue.main.async {
                         self.todoTV.reloadData()
@@ -135,6 +138,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             destination.documentID = tasksArray[todoTV.indexPathForSelectedRow!.row].documentID
             
             destination.descriptions = tasksArray[todoTV.indexPathForSelectedRow!.row].description
+            
+            destination.text = tasksArray[todoTV.indexPathForSelectedRow!.row].text
             
         }
     }
