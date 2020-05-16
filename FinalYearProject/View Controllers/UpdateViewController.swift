@@ -21,7 +21,10 @@ class UpdateViewController: UIViewController {
     
     @IBOutlet weak var textLabel: UILabel!
     
+    //@IBOutlet weak var informationTextView: UITextView!
+    
     @IBOutlet weak var informationTextView: UITextView!
+    
     
     @IBOutlet weak var progressLabel: UILabel!
     

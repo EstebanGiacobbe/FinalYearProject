@@ -40,7 +40,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         todoTV.delegate = self
         todoTV.dataSource = self
         todoTV.tableFooterView = UIView()
-        todoTV.rowHeight = 100
+        todoTV.rowHeight = 80
         
         
         
@@ -128,15 +128,41 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.dateLabel.text = tasksArray[indexPath.row].date
         
+        if tasksArray[indexPath.row].progress == "Done" {
+            cell.checkmarkImage.image = UIImage(named: "checkmarks.png")
+            
+        } else {
+            
+            cell.checkmarkImage.image = nil
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView.deselectRow(at: indexPath, animated: true)
-        
+    
         performSegue(withIdentifier: "showdetail", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
         
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            
+            tasksCollectionRef.document(tasksArray[indexPath.row].documentID).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print ("Document successfully removed!")
+                }
+            }
+            tasksArray.remove(at: indexPath.row)
+            
+            todoTV.beginUpdates()
+            todoTV.deleteRows(at: [indexPath], with: .automatic)
+            todoTV.endUpdates()
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
