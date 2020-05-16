@@ -16,6 +16,8 @@ struct tasks {
     var name, description: String
     var documentID: String
     var text: String
+    var date: String
+    var progress: String
     
 }
 
@@ -37,6 +39,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         todoTV.delegate = self
         todoTV.dataSource = self
+        todoTV.tableFooterView = UIView()
         todoTV.rowHeight = 100
         
         
@@ -90,8 +93,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                     let text = data["text"] as? String ?? ""
                     
+                    let date = data["date"] as? String ?? ""
                     
-                    let newTask = tasks(name: name, description: description, documentID: documentID, text:text)
+                    let progress = data["progress"] as? String ?? ""
+                    
+                    
+                    let newTask = tasks(name: name, description: description, documentID: documentID, text:text, date: date, progress: progress)
                     self.tasksArray.append(newTask)
                     
                     //self.iD = documentID
@@ -119,6 +126,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.nameLabel.text = tasksArray[indexPath.row].name
         cell.todoLabel.text = tasksArray[indexPath.row].description
         
+        cell.dateLabel.text = tasksArray[indexPath.row].date
+        
         
         return cell
     }
@@ -140,6 +149,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             destination.descriptions = tasksArray[todoTV.indexPathForSelectedRow!.row].description
             
             destination.text = tasksArray[todoTV.indexPathForSelectedRow!.row].text
+            
+            destination.progress = tasksArray[todoTV.indexPathForSelectedRow!.row].progress
             
         }
     }

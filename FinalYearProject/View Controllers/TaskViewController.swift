@@ -22,6 +22,11 @@ class TaskViewController: UIViewController {
     @IBOutlet weak var informationTextView: UITextView!
     
     
+    @IBOutlet weak var dateTxt: UITextField!
+    
+    let datePicker = UIDatePicker()
+    
+    
     @IBOutlet weak var popUpView: UIView!
     
     override func viewDidLoad() {
@@ -35,6 +40,8 @@ class TaskViewController: UIViewController {
         informationTextView.clipsToBounds = true
         
         db = Firestore.firestore()
+        
+        createDatePicker()
 
     }
     
@@ -46,8 +53,12 @@ class TaskViewController: UIViewController {
         
         let information = informationTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        let date = dateTxt.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let progress = "Not done"
+        
         var ref: DocumentReference? = nil
-        ref = db.collection("Tasks").addDocument(data: ["Description":description, "name": name, "text" : information]) { err in
+        ref = db.collection("Tasks").addDocument(data: ["Description":description, "name": name, "text" : information, "date": date, "progress": progress]) { err in
             if let err = err{
                 print ("error adding document: \(err)")
             } else {
@@ -61,5 +72,35 @@ class TaskViewController: UIViewController {
         
     }
     
+    func createDatePicker() {
+        dateTxt.textAlignment = .center
+        
+        //toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // bar button
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolbar.setItems([doneBtn], animated: true)
+        //assign toolbar to the keyboard
+        dateTxt.inputAccessoryView = toolbar
+        
+        //assign datepicker to the textfield
+        dateTxt.inputView = datePicker
+        
+        //formatting datepicker
+        datePicker.datePickerMode = .date
+    }
+    
+    @objc func donePressed(){
+        //format text
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        
+        dateTxt.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+        
+    }
 
 }

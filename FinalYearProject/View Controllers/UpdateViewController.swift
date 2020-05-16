@@ -23,14 +23,21 @@ class UpdateViewController: UIViewController {
     
     @IBOutlet weak var informationTextView: UITextView!
     
+    @IBOutlet weak var progressLabel: UILabel!
+    
+    
+    @IBOutlet weak var stack: UIStackView!
     
     var documentID: String?
     var descriptions: String?
     var text: String?
+    var progress: String?
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         tasksCollectionRef = Firestore.firestore().collection("Tasks")
 
@@ -40,6 +47,7 @@ class UpdateViewController: UIViewController {
         //textLabel.text = text
         
         informationTextView.text = text
+        progressLabel.text = progress
         
         informationTextView.layer.cornerRadius = 5
         informationTextView.layer.borderColor = UIColor.gray.withAlphaComponent(0.5).cgColor
