@@ -194,7 +194,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             destination.descriptions = tasksArray[todoTV.indexPathForSelectedRow!.row].description
             
-            destination.text = tasksArray[todoTV.indexPathForSelectedRow!.row].text
+            //destination.text = tasksArray[todoTV.indexPathForSelectedRow!.row].text
             
            //destination.progress = tasksArray[todoTV.indexPathForSelectedRow!.row].progress
             

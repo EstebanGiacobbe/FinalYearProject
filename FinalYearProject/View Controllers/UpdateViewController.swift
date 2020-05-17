@@ -61,6 +61,25 @@ class UpdateViewController: UIViewController {
         informationTextView.clipsToBounds = true
         
         loadProgress()
+        loadInfo()
+        
+    }
+    
+    func loadInfo(){
+        
+        tasksCollectionRef.document(documentID!)
+            .addSnapshotListener{ (querySnapshot, error) in
+                guard let snapshot = querySnapshot else {return}
+                
+                guard let data = snapshot.data() else {
+                    return
+                }
+                //print("Current data: \(data)")
+                let info = data["text"] as? String ?? ""
+                print("info: \(info)")
+                self.informationTextView.text = info
+                
+        }
         
     }
     
@@ -128,12 +147,25 @@ class UpdateViewController: UIViewController {
                 print ("Document updated.")
             }
             }
-            
+        }
+    }
+    
+    @IBAction func updateText(_ sender: Any) {
+        
+         let docRef = tasksCollectionRef.document(documentID!)
+        
+        let information = informationTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        docRef.updateData(["text":information]) {
+        err in
+        if let err = err {
+            print("Error updating document: \(err)")
+        } else {
+            print ("Document updated.")
+        }
         }
         
-        
-        
-        
     }
+    
     
 }
