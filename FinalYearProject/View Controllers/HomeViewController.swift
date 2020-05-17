@@ -29,7 +29,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var tasksArray = [tasks]()
     private var tasksCollectionRef: CollectionReference!
     
-
+    let myRefreshControl = UIRefreshControl()
     
     
     @IBOutlet weak var todoTV: UITableView!
@@ -48,10 +48,23 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         loadToDo()
         
+        myRefreshControl.addTarget(self, action: #selector(HomeViewController.handleRefresh), for: .valueChanged)
+        todoTV.refreshControl = myRefreshControl
+        
         }
-
-        // Do any additional setup after loading the view.
     
+    @objc func handleRefresh(){
+        Timer.scheduledTimer(withTimeInterval: 1.0,repeats: false){ (timer) in
+            self.todoTV.reloadData()
+            self.myRefreshControl.endRefreshing()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(true)
+        //loadToDo()
+    }
     
     @IBAction func logout(_ sender: Any) {
         
@@ -128,15 +141,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.dateLabel.text = tasksArray[indexPath.row].date
         
+        
+        if tasksArray[indexPath.row].progress == "Not done" {
+            cell.checkmarkImage.image = UIImage(named: "notChecked.png")
+            
+            
+        }
         if tasksArray[indexPath.row].progress == "Done" {
-            cell.checkmarkImage.image = UIImage(named: "checkmarks.png")
             
-        } else {
+            cell.checkmarkImage.image = UIImage(named:"checked.png")
             
-            cell.checkmarkImage.image = nil
         }
         
+        
         return cell
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -147,6 +166,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+       
         if editingStyle == .delete{
             
             tasksCollectionRef.document(tasksArray[indexPath.row].documentID).delete() { err in
@@ -176,7 +196,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             destination.text = tasksArray[todoTV.indexPathForSelectedRow!.row].text
             
-            destination.progress = tasksArray[todoTV.indexPathForSelectedRow!.row].progress
+           //destination.progress = tasksArray[todoTV.indexPathForSelectedRow!.row].progress
+            
             
         }
     }

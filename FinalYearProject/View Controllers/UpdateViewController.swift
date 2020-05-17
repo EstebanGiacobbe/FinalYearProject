@@ -29,6 +29,9 @@ class UpdateViewController: UIViewController {
     @IBOutlet weak var progressLabel: UILabel!
     
     
+    @IBOutlet weak var checkbox: UIButton!
+    
+    
     @IBOutlet weak var stack: UIStackView!
     
     var documentID: String?
@@ -57,12 +60,13 @@ class UpdateViewController: UIViewController {
         informationTextView.layer.borderWidth = 0.5
         informationTextView.clipsToBounds = true
         
-        //loadLabel()
+        loadProgress()
         
     }
     
-    func loadLabel(){
+    func loadProgress(){
         
+        /*
         let docRef = tasksCollectionRef.document(documentID!)
         
         docRef.getDocument { (document, error) in
@@ -79,11 +83,53 @@ class UpdateViewController: UIViewController {
                     
                     self.text = texts
                 }
+            }
+        }*/
+        
+        tasksCollectionRef.document(documentID!)
+            .addSnapshotListener{ (querySnapshot, error) in
+                guard let snapshot = querySnapshot else {return}
                 
+                guard let data = snapshot.data() else {
+                    return
+                }
+                //print("Current data: \(data)")
+                let progress = data["progress"] as? String ?? ""
+                print("progress: \(progress)")
+                self.progressLabel.text = progress
+                
+                if self.progressLabel.text == "Done" {
+                    self.checkbox.setImage(UIImage(named: "checked.png"), for: .normal)
+                } else {
+                    self.checkbox.setImage(UIImage(named: "notChecked.png"), for: .normal)
+                }
+        }
+    }
+    
+    
+    @IBAction func checkbox(_ sender: Any) {
+        
+        let docRef = tasksCollectionRef.document(documentID!)
+        if self.progressLabel.text == "Not done" {
+        docRef.updateData(["progress":"Done"]) {
+            err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print ("Document updated.")
+            }
+            }}
+        else {
+           docRef.updateData(["progress":"Not done"]) {
+            err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print ("Document updated.")
+            }
             }
             
         }
-            
         
         
         

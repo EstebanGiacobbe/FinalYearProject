@@ -348,7 +348,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="W0c-XQ-GBd">
-                                        <rect key="frame" x="8" y="67" width="398" height="20.5"/>
+                                        <rect key="frame" x="37" y="67" width="363" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg2-ab-6hM">
                                                 <rect key="frame" x="0.0" y="0.0" width="73" height="20.5"/>
@@ -371,7 +371,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDO-F5-NZe">
-                                                <rect key="frame" x="125" y="0.0" width="273" height="20.5"/>
+                                                <rect key="frame" x="125" y="0.0" width="238" height="20.5"/>
                                                 <color key="backgroundColor" red="0.83983075620000003" green="0.90925377610000002" blue="0.94903427360000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20.5" id="KbN-Cd-zpf"/>
@@ -382,21 +382,33 @@
                                         <color key="tintColor" red="0.82426851990000005" green="0.91316610570000001" blue="0.95295613999999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="7VJ-K0-BgI"/>
-                                            <constraint firstAttribute="width" constant="398" id="c7J-Ba-l1C"/>
+                                            <constraint firstAttribute="width" constant="363" id="AOT-0a-q8W"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRb-bl-dN5">
+                                        <rect key="frame" x="8" y="68" width="21" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="21" id="3TZ-PA-bUB"/>
+                                            <constraint firstAttribute="height" constant="21" id="5Kg-1G-EUR"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="checkbox:" destination="Xwk-Os-qFb" eventType="touchUpInside" id="pKT-F0-LaC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.82426851990000005" green="0.91316610570000001" blue="0.95295613999999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.82426851990000005" green="0.91316610570000001" blue="0.95295613999999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="102" id="09o-Og-cqf"/>
+                                    <constraint firstItem="hRb-bl-dN5" firstAttribute="leading" secondItem="hZ7-7f-qpm" secondAttribute="leading" constant="8" id="Jgu-mn-MLs"/>
                                     <constraint firstItem="fLv-Zq-FhY" firstAttribute="leading" secondItem="hZ7-7f-qpm" secondAttribute="leading" constant="8" id="KeK-6b-gY7"/>
                                     <constraint firstItem="fLv-Zq-FhY" firstAttribute="top" secondItem="hZ7-7f-qpm" secondAttribute="top" constant="8" id="MEK-qa-NVp"/>
-                                    <constraint firstAttribute="trailing" secondItem="W0c-XQ-GBd" secondAttribute="trailing" constant="8" id="MkO-Sg-b4v"/>
-                                    <constraint firstItem="W0c-XQ-GBd" firstAttribute="leading" secondItem="hZ7-7f-qpm" secondAttribute="leading" constant="8" id="Re8-fP-4rX"/>
+                                    <constraint firstItem="W0c-XQ-GBd" firstAttribute="leading" secondItem="hRb-bl-dN5" secondAttribute="trailing" constant="8" id="OON-ri-DCd"/>
                                     <constraint firstAttribute="trailing" secondItem="fLv-Zq-FhY" secondAttribute="trailing" constant="8" id="UHM-5x-378"/>
+                                    <constraint firstAttribute="trailing" secondItem="W0c-XQ-GBd" secondAttribute="trailing" constant="14" id="Z9p-ER-aW5"/>
                                     <constraint firstItem="W0c-XQ-GBd" firstAttribute="top" secondItem="fLv-Zq-FhY" secondAttribute="bottom" constant="8" id="o0q-3T-5Ca"/>
                                     <constraint firstAttribute="width" constant="414" id="oY8-vH-yUD"/>
+                                    <constraint firstAttribute="bottom" secondItem="hRb-bl-dN5" secondAttribute="bottom" constant="13" id="os3-52-KTg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -410,6 +422,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="bzr-xO-hoE"/>
                     <connections>
+                        <outlet property="checkbox" destination="hRb-bl-dN5" id="Yso-Vu-1fc"/>
                         <outlet property="descriptionLabel" destination="fLv-Zq-FhY" id="EtB-hG-hcf"/>
                         <outlet property="informationTextView" destination="rXk-F5-z4g" id="y5W-gR-tl3"/>
                         <outlet property="progressLabel" destination="0Fm-18-Ocx" id="d6j-dV-f93"/>

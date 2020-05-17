@@ -14,6 +14,8 @@
 		5B370DBE241AE8FE00D19CBE /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B370DBD241AE8FE00D19CBE /* TodoCell.swift */; };
 		5B9912BD2470188F004CD6C3 /* icons8-nome-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912BC2470188F004CD6C3 /* icons8-nome-50.png */; };
 		5B9912BF2470291B004CD6C3 /* checkmarks.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912BE2470291B004CD6C3 /* checkmarks.png */; };
+		5B9912C12470482D004CD6C3 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912C02470482D004CD6C3 /* checked.png */; };
+		5B9912C324704838004CD6C3 /* notChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912C224704838004CD6C3 /* notChecked.png */; };
 		5B9FB9442401F5BD00386C53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FB9432401F5BD00386C53 /* AppDelegate.swift */; };
 		5B9FB9462401F5BD00386C53 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FB9452401F5BD00386C53 /* SceneDelegate.swift */; };
 		5B9FB9482401F5BD00386C53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FB9472401F5BD00386C53 /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 		5B370DBD241AE8FE00D19CBE /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoCell.swift; path = ../TodoCell.swift; sourceTree = "<group>"; };
 		5B9912BC2470188F004CD6C3 /* icons8-nome-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-nome-50.png"; sourceTree = "<group>"; };
 		5B9912BE2470291B004CD6C3 /* checkmarks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmarks.png; sourceTree = "<group>"; };
+		5B9912C02470482D004CD6C3 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		5B9912C224704838004CD6C3 /* notChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notChecked.png; sourceTree = "<group>"; };
 		5B9FB9402401F5BD00386C53 /* FinalYearProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalYearProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B9FB9432401F5BD00386C53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B9FB9452401F5BD00386C53 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 				5B9FB960240203F000386C53 /* Helpers */,
 				5B9FB95D2401F79600386C53 /* View Controllers */,
 				5B9FB9492401F5BD00386C53 /* Main.storyboard */,
+				5B9912C224704838004CD6C3 /* notChecked.png */,
+				5B9912C02470482D004CD6C3 /* checked.png */,
 				5B9912BE2470291B004CD6C3 /* checkmarks.png */,
 				5B9912BC2470188F004CD6C3 /* icons8-nome-50.png */,
 				5B9FB94C2401F5C000386C53 /* Assets.xcassets */,
@@ -210,7 +216,9 @@
 				5B9FB9502401F5C000386C53 /* LaunchScreen.storyboard in Resources */,
 				5B9912BF2470291B004CD6C3 /* checkmarks.png in Resources */,
 				5B9FB96224020DD600386C53 /* GoogleService-Info.plist in Resources */,
+				5B9912C12470482D004CD6C3 /* checked.png in Resources */,
 				5B9FB94D2401F5C000386C53 /* Assets.xcassets in Resources */,
+				5B9912C324704838004CD6C3 /* notChecked.png in Resources */,
 				5B9FB94B2401F5BD00386C53 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
