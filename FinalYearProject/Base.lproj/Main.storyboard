@@ -412,7 +412,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVd-jT-JFI">
-                                <rect key="frame" x="182" y="512" width="51" height="30"/>
+                                <rect key="frame" x="20" y="501" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Update">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -437,6 +437,7 @@
                         <outlet property="informationTextView" destination="rXk-F5-z4g" id="y5W-gR-tl3"/>
                         <outlet property="progressLabel" destination="0Fm-18-Ocx" id="d6j-dV-f93"/>
                         <outlet property="stack" destination="W0c-XQ-GBd" id="aJ6-3K-Zeu"/>
+                        <outlet property="updateTxt" destination="pVd-jT-JFI" id="kzX-YE-JNl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Po8-kR-WBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

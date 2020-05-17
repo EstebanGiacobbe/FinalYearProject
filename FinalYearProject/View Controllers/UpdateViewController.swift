@@ -32,6 +32,9 @@ class UpdateViewController: UIViewController {
     @IBOutlet weak var checkbox: UIButton!
     
     
+    @IBOutlet weak var updateTxt: UIButton!
+    
+    
     @IBOutlet weak var stack: UIStackView!
     
     var documentID: String?
@@ -62,6 +65,8 @@ class UpdateViewController: UIViewController {
         
         loadProgress()
         loadInfo()
+        
+        Utilities.styleUpdate(updateTxt)
         
     }
     
