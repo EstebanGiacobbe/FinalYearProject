@@ -37,6 +37,15 @@ class UpdateViewController: UIViewController {
     
     @IBOutlet weak var stack: UIStackView!
     
+    
+    @IBOutlet weak var startTime: UITextField!
+    
+    
+    @IBOutlet weak var finishTime: UITextField!
+    
+    
+    @IBOutlet weak var finalTime: UILabel!
+    
     var documentID: String?
     var descriptions: String?
     var text: String?
@@ -122,6 +131,15 @@ class UpdateViewController: UIViewController {
                 print("progress: \(progress)")
                 self.progressLabel.text = progress
                 
+                let start = data["startTime"] as? String ?? ""
+                self.startTime.text = start
+                
+                let finish = data["finishTime"] as? String ?? ""
+                self.finishTime.text = finish
+                
+                let final = data["finalTime"] as? String ?? ""
+                self.finalTime.text = final
+                
                 if self.progressLabel.text == "Done" {
                     self.checkbox.setImage(UIImage(named: "checked.png"), for: .normal)
                 } else {
@@ -173,4 +191,63 @@ class UpdateViewController: UIViewController {
     }
     
     
+    
+    @IBAction func startTask(_ sender: Any) {
+        
+        let time1 = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        
+        startTime.text = formatter.string(from: time1)
+        
+        timeToFireStore()
+    }
+    
+    
+    @IBAction func finishTask(_ sender: Any) {
+        let time2 = Date()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.dateStyle = .none
+        
+        finishTime.text = formatter.string(from: time2)
+    
+        let date2 = formatter.date(from: startTime.text!)!
+        
+        let elapsedTime = time2.timeIntervalSince(date2)
+        
+        let hours = floor(elapsedTime / 60 / 60)
+        
+        let minutes = floor ((elapsedTime - (hours * 60 * 60)) / 60)
+        
+        //print("\(Int(hours)) hr and \(Int(minutes)) min ")
+        
+        print("\(Int(minutes)) minutes taken to complete task ")
+
+        finalTime.text = "The task has been completed in \(Int(minutes)) minutes"
+        
+        timeToFireStore()
+    }
+    
+    func timeToFireStore(){
+        
+        let docRef = tasksCollectionRef.document(documentID!)
+        
+        let startTi = startTime.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let finishTi = finishTime.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let finalTi = finalTime.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        docRef.updateData(["startTime":startTi, "finishTime":finishTi, "finalTime":finalTi]) {
+        err in
+        if let err = err {
+            print("Error updating document: \(err)")
+        } else {
+            print ("Document updated.")
+        }
+        }
+        
+    }
 }
