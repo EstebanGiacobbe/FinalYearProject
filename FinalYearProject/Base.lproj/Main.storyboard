@@ -375,12 +375,22 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDO-F5-NZe">
-                                                <rect key="frame" x="125" y="0.0" width="238" height="20.5"/>
+                                                <rect key="frame" x="125" y="0.0" width="204" height="20.5"/>
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20.5" id="KbN-Cd-zpf"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1G-Ob-Ag1">
+                                                <rect key="frame" x="334" y="0.0" width="29" height="19"/>
+                                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" backgroundImage="pencil.and.ellipsis.rectangle" catalog="system">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="editTaskLabel:" destination="Xwk-Os-qFb" eventType="touchUpInside" id="kjk-tZ-oJD"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.82426851990000005" green="0.91316610570000001" blue="0.95295613999999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="tintColor" red="0.82426851990000005" green="0.91316610570000001" blue="0.95295613999999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -415,18 +425,6 @@
                                     <constraint firstAttribute="bottom" secondItem="hRb-bl-dN5" secondAttribute="bottom" constant="13" id="os3-52-KTg"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVd-jT-JFI">
-                                <rect key="frame" x="20" y="501" width="51" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="51" id="kA1-9e-ur5" userLabel="width = 53"/>
-                                </constraints>
-                                <state key="normal" title="Update">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="updateText:" destination="Xwk-Os-qFb" eventType="touchUpInside" id="Ydx-xQ-g6N"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fI5-VY-5de">
                                 <rect key="frame" x="35" y="567" width="34" height="30"/>
                                 <constraints>
@@ -461,15 +459,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVd-jT-JFI">
+                                <rect key="frame" x="20" y="501" width="29" height="18.5"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" backgroundImage="pencil.and.ellipsis.rectangle" catalog="system">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateText:" destination="Xwk-Os-qFb" eventType="touchUpInside" id="Ydx-xQ-g6N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pVd-jT-JFI" firstAttribute="top" secondItem="rXk-F5-z4g" secondAttribute="bottom" constant="8" id="4xA-sz-1Fd"/>
+                            <constraint firstItem="pVd-jT-JFI" firstAttribute="top" secondItem="rXk-F5-z4g" secondAttribute="bottom" constant="8" id="1CT-Tf-6sC"/>
                             <constraint firstItem="row-K0-fFG" firstAttribute="leading" secondItem="P54-G1-meX" secondAttribute="leading" constant="32" id="7Uz-Lu-vyC"/>
                             <constraint firstItem="hZ7-7f-qpm" firstAttribute="top" secondItem="P54-G1-meX" secondAttribute="top" id="GOf-EI-CYQ"/>
                             <constraint firstItem="fI5-VY-5de" firstAttribute="leading" secondItem="P54-G1-meX" secondAttribute="leading" constant="35" id="Jmy-dW-1cc"/>
                             <constraint firstItem="rXk-F5-z4g" firstAttribute="top" secondItem="hZ7-7f-qpm" secondAttribute="bottom" constant="26" id="Qxm-XP-UoV"/>
-                            <constraint firstItem="pVd-jT-JFI" firstAttribute="leading" secondItem="P54-G1-meX" secondAttribute="leading" constant="20" id="S1k-4E-E0d"/>
                             <constraint firstItem="1tM-i3-lb8" firstAttribute="top" secondItem="row-K0-fFG" secondAttribute="bottom" constant="32" id="UhV-wn-91H"/>
                             <constraint firstItem="biq-pl-glN" firstAttribute="top" secondItem="gGm-sK-Hek" secondAttribute="bottom" constant="19" id="Vnj-em-KzA"/>
                             <constraint firstItem="gGm-sK-Hek" firstAttribute="top" secondItem="rXk-F5-z4g" secondAttribute="bottom" constant="74" id="Xxc-Nr-bde"/>
@@ -480,9 +487,9 @@
                             <constraint firstItem="1tM-i3-lb8" firstAttribute="top" secondItem="biq-pl-glN" secondAttribute="bottom" constant="32" id="kbD-uo-lqe"/>
                             <constraint firstItem="row-K0-fFG" firstAttribute="top" secondItem="fI5-VY-5de" secondAttribute="bottom" constant="27" id="nsD-iV-UpK"/>
                             <constraint firstItem="biq-pl-glN" firstAttribute="top" secondItem="gGm-sK-Hek" secondAttribute="bottom" constant="19" id="qTH-yx-U17"/>
-                            <constraint firstItem="fI5-VY-5de" firstAttribute="top" secondItem="pVd-jT-JFI" secondAttribute="bottom" constant="36" id="uJ6-Od-6St"/>
                             <constraint firstItem="1tM-i3-lb8" firstAttribute="leading" secondItem="ME7-2a-iug" secondAttribute="leading" constant="35" id="xoK-gI-f9L"/>
                             <constraint firstItem="biq-pl-glN" firstAttribute="leading" secondItem="row-K0-fFG" secondAttribute="trailing" constant="44" id="y2q-Fs-t5f"/>
+                            <constraint firstItem="pVd-jT-JFI" firstAttribute="leading" secondItem="P54-G1-meX" secondAttribute="leading" constant="20" id="yNW-S8-DSN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P54-G1-meX"/>
                     </view>
@@ -699,5 +706,6 @@
     </scenes>
     <resources>
         <image name="icons8-nome-50.png" width="50" height="50"/>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
     </resources>
 </document>

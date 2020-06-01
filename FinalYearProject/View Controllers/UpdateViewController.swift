@@ -75,7 +75,7 @@ class UpdateViewController: UIViewController {
         loadProgress()
         loadInfo()
         
-        Utilities.styleUpdate(updateTxt)
+        //Utilities.styleUpdate(updateTxt)
         
     }
     
@@ -126,6 +126,7 @@ class UpdateViewController: UIViewController {
                 guard let data = snapshot.data() else {
                     return
                 }
+
                 //print("Current data: \(data)")
                 let progress = data["progress"] as? String ?? ""
                 print("progress: \(progress)")
@@ -140,11 +141,16 @@ class UpdateViewController: UIViewController {
                 let final = data["finalTime"] as? String ?? ""
                 self.finalTime.text = final
                 
+                let description = data["Description"] as? String ?? ""
+                self.descriptionLabel.text = description
+                
                 if self.progressLabel.text == "Done" {
                     self.checkbox.setImage(UIImage(named: "checked.png"), for: .normal)
                 } else {
                     self.checkbox.setImage(UIImage(named: "notChecked.png"), for: .normal)
-                }
+                    }
+                    
+                
         }
     }
     
@@ -175,18 +181,33 @@ class UpdateViewController: UIViewController {
     
     @IBAction func updateText(_ sender: Any) {
         
-         let docRef = tasksCollectionRef.document(documentID!)
         
-        let information = informationTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        docRef.updateData(["text":information]) {
-        err in
-        if let err = err {
-            print("Error updating document: \(err)")
-        } else {
-            print ("Document updated.")
-        }
-        }
+        let alert = UIAlertController(title: "Edit Task information", message:"Edit task information", preferredStyle: .alert)
+            alert.addTextField{ (textField) in
+                textField.placeholder = "Enter new information"
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let update = UIAlertAction(title: "Update", style: .default){ _ in
+                guard let text = alert.textFields?.first?.text else {return}
+                print(text)
+                
+                let docRef = self.tasksCollectionRef.document(self.documentID!)
+                
+                //let information = informationTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                
+                docRef.updateData(["text":text]) {
+                err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print ("Document updated.")
+                }
+                }
+                
+            }
+            alert.addAction(cancel)
+            alert.addAction(update)
+            present(alert,animated:  true, completion: nil)
         
     }
     
@@ -249,5 +270,33 @@ class UpdateViewController: UIViewController {
         }
         }
         
+    }
+    
+    
+    @IBAction func editTaskLabel(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Edit Task name", message:"Edit task name", preferredStyle: .alert)
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Enter new task label"
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let update = UIAlertAction(title: "Update", style: .default){ _ in
+            guard let text = alert.textFields?.first?.text else {return}
+            print(text)
+            
+            let docRef = self.tasksCollectionRef.document(self.documentID!)
+            
+            docRef.updateData(["Description":text]) {
+            err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print ("Document updated.")
+            }
+            }
+        }
+        alert.addAction(cancel)
+        alert.addAction(update)
+        present(alert,animated:  true, completion: nil)
     }
 }

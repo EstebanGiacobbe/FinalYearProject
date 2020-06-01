@@ -127,22 +127,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let date = data["date"] as? String ?? ""
                     let progress = data["progress"] as? String ?? ""
                     
-                    guard let oldArrayIndex = self.tasksArray.firstIndex(where: {$0.documentID == documentID}) else {return}
-                    let inde = self.tasksArray[oldArrayIndex]
-                    //print ("inde: \(inde)")
-                    //self.tasksArray[oldArrayIndex] = inde
+                    //Index pointing to the document with the same ID as the modified file.
+                    guard let oldDocIndex = self.tasksArray.firstIndex(where: {$0.documentID == documentID}) else {return}
+                    let indexToDelete = self.tasksArray[oldDocIndex]
                     
+                    //remove the current task containing the same ID as the modified file.
+                    if let index = self.tasksArray.firstIndex(of: indexToDelete) {
+                        self.tasksArray.remove(at: index)
+                    }
+                    
+                    //Append the modified task reflecting the changes.
                     let newTask = tasks(name: name, description: description, documentID: documentID, text:text, date: date, progress: progress)
                     self.tasksArray.append(newTask)
                     
-                    //let indexOfA = self.tasksArray.lastIndex { (tasks) -> Bool in
-                    //    tasks.diff.document.data()
-                    //}
-                    //self.tasksArray.remove(at: indexOfA)
-                    
-                    if let index = self.tasksArray.firstIndex(of: inde) {
-                        self.tasksArray.remove(at: index)
-                    }
+                
                     
                     DispatchQueue.main.async {
                         self.todoTV.reloadData()
@@ -215,7 +213,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             destination.documentID = tasksArray[todoTV.indexPathForSelectedRow!.row].documentID
             
-            destination.descriptions = tasksArray[todoTV.indexPathForSelectedRow!.row].description
+            //destination.descriptions = tasksArray[todoTV.indexPathForSelectedRow!.row].description
             
             //destination.text = tasksArray[todoTV.indexPathForSelectedRow!.row].text
             
