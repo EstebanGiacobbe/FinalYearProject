@@ -21,6 +21,7 @@ class TaskViewController: UIViewController {
     
     @IBOutlet weak var informationTextView: UITextView!
     
+    @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var dateTxt: UITextField!
     
@@ -42,35 +43,42 @@ class TaskViewController: UIViewController {
         db = Firestore.firestore()
         
         createDatePicker()
+        
+        errorLabel.alpha = 0
 
     }
     
-    @IBAction func updateButton(_ sender: Any) {
+
+    @IBAction func uploadButton(_ sender: Any) {
         
-        let description = descriptionTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let error = validateFields()
+              
+              if error != nil {
+                  showError(error!)
+              }
+              else {
+              
+              let description = descriptionTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+              let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+              let information = informationTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+              let date = dateTxt.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+              
+              let progress = "Not done"
+              
+              var ref: DocumentReference? = nil
+              ref = db.collection("Tasks").addDocument(data: ["Description":description, "name": name, "text" : information, "date": date, "progress": progress]) { err in
+                  if let err = err{
+                      print ("error adding document: \(err)")
+                  } else {
+                      print("Document added with ID: \(ref!.documentID)")
+                  }
+              }
         
-        let name = nameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        let information = informationTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        let date = dateTxt.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        let progress = "Not done"
-        
-        var ref: DocumentReference? = nil
-        ref = db.collection("Tasks").addDocument(data: ["Description":description, "name": name, "text" : information, "date": date, "progress": progress]) { err in
-            if let err = err{
-                print ("error adding document: \(err)")
-            } else {
-                
-                print("Document added with ID: \(ref!.documentID)")
-                
-            }
-        }
-        
-        dismiss(animated: true, completion: nil)
-        
+              dismiss(animated: true, completion: nil)
+              }
     }
+    
+
     
     func createDatePicker() {
         dateTxt.textAlignment = .center
@@ -102,5 +110,29 @@ class TaskViewController: UIViewController {
         self.view.endEditing(true)
         
     }
-
+    
+    //check the vields and validate that the data is okay, if everything is okay this method returns nil otherwise return error message
+    func validateFields() -> String?{
+        
+        //check that all fields are filled in
+        if descriptionTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            informationTextView.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            dateTxt.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+            
+            return "Please fill all fields"
+            
+        }
+        return nil
+}
+    
+    func showError (_ message:String){
+        
+        //show error message
+        errorLabel.text = message
+        errorLabel.alpha = 1
+        
+    }
+    
+    
 }

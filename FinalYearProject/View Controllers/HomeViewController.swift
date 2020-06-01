@@ -10,9 +10,7 @@ import UIKit
 import FirebaseFirestore
 import Firebase
 
-struct tasks {
-    
-    
+struct tasks: Equatable {
     var name, description: String
     var documentID: String
     var text: String
@@ -24,14 +22,15 @@ struct tasks {
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
-    var iD : String?
+
     var tasksArray = [tasks]()
+    
     private var tasksCollectionRef: CollectionReference!
     
     let myRefreshControl = UIRefreshControl()
     
-    
+    var iD : String?
+
     @IBOutlet weak var todoTV: UITableView!
     
     override func viewDidLoad() {
@@ -93,28 +92,57 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             snapshot.documentChanges.forEach {
                 
                 diff in
-                
                 if (diff.type == .added) {
                     
                     let data = diff.document.data()
-                    
                     let description = data["Description"] as? String ?? ""
-
                     let name = data["name"] as? String ?? ""
-                    
                     let documentID = diff.document.documentID
-                    
                     let text = data["text"] as? String ?? ""
-                    
                     let date = data["date"] as? String ?? ""
-                    
                     let progress = data["progress"] as? String ?? ""
                     
+                    let newTask = tasks(name: name, description: description, documentID: documentID, text:text, date: date, progress: progress)
+                    self.tasksArray.append(newTask)
+                    print(self.tasksArray)
+                    //self.iD = documentID
+                    
+                    DispatchQueue.main.async {
+                        self.todoTV.reloadData()
+                    }
+                }
+                if (diff.type == .removed) {
+                    
+                    print("Removed document: \(diff.document.data())")
+                }
+                if (diff.type == .modified){
+                    
+                    print("Modified document: \(diff.document.data())")
+                    
+                    let data = diff.document.data()
+                    let description = data["Description"] as? String ?? ""
+                    let name = data["name"] as? String ?? ""
+                    let documentID = diff.document.documentID
+                    let text = data["text"] as? String ?? ""
+                    let date = data["date"] as? String ?? ""
+                    let progress = data["progress"] as? String ?? ""
+                    
+                    guard let oldArrayIndex = self.tasksArray.firstIndex(where: {$0.documentID == documentID}) else {return}
+                    let inde = self.tasksArray[oldArrayIndex]
+                    //print ("inde: \(inde)")
+                    //self.tasksArray[oldArrayIndex] = inde
                     
                     let newTask = tasks(name: name, description: description, documentID: documentID, text:text, date: date, progress: progress)
                     self.tasksArray.append(newTask)
                     
-                    //self.iD = documentID
+                    //let indexOfA = self.tasksArray.lastIndex { (tasks) -> Bool in
+                    //    tasks.diff.document.data()
+                    //}
+                    //self.tasksArray.remove(at: indexOfA)
+                    
+                    if let index = self.tasksArray.firstIndex(of: inde) {
+                        self.tasksArray.remove(at: index)
+                    }
                     
                     DispatchQueue.main.async {
                         self.todoTV.reloadData()
@@ -138,22 +166,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.nameLabel.text = tasksArray[indexPath.row].name
         cell.todoLabel.text = tasksArray[indexPath.row].description
-        
         cell.dateLabel.text = tasksArray[indexPath.row].date
         
         
         if tasksArray[indexPath.row].progress == "Not done" {
             cell.checkmarkImage.image = UIImage(named: "notChecked.png")
-            
-            
         }
         if tasksArray[indexPath.row].progress == "Done" {
             
             cell.checkmarkImage.image = UIImage(named:"checked.png")
-            
         }
-        
-        
         return cell
         
     }
@@ -165,7 +187,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
        
         if editingStyle == .delete{
             

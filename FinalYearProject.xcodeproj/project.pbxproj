@@ -12,6 +12,7 @@
 		5B2DB1E72427859900C8A113 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2DB1E62427859900C8A113 /* UpdateViewController.swift */; };
 		5B370DB42405383400D19CBE /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B370DB32405383400D19CBE /* NavViewController.swift */; };
 		5B370DBE241AE8FE00D19CBE /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B370DBD241AE8FE00D19CBE /* TodoCell.swift */; };
+		5B7F7F712483E2A80038E7CF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F7F702483E2A70038E7CF /* AccountViewController.swift */; };
 		5B9912BD2470188F004CD6C3 /* icons8-nome-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912BC2470188F004CD6C3 /* icons8-nome-50.png */; };
 		5B9912BF2470291B004CD6C3 /* checkmarks.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912BE2470291B004CD6C3 /* checkmarks.png */; };
 		5B9912C12470482D004CD6C3 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912C02470482D004CD6C3 /* checked.png */; };
@@ -38,6 +39,7 @@
 		5B2DB1E62427859900C8A113 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
 		5B370DB32405383400D19CBE /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		5B370DBD241AE8FE00D19CBE /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoCell.swift; path = ../TodoCell.swift; sourceTree = "<group>"; };
+		5B7F7F702483E2A70038E7CF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		5B9912BC2470188F004CD6C3 /* icons8-nome-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-nome-50.png"; sourceTree = "<group>"; };
 		5B9912BE2470291B004CD6C3 /* checkmarks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmarks.png; sourceTree = "<group>"; };
 		5B9912C02470482D004CD6C3 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				5B370DBD241AE8FE00D19CBE /* TodoCell.swift */,
 				5B2DB1E4241E627100C8A113 /* TaskViewController.swift */,
 				5B2DB1E62427859900C8A113 /* UpdateViewController.swift */,
+				5B7F7F702483E2A70038E7CF /* AccountViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				5B9FB9482401F5BD00386C53 /* ViewController.swift in Sources */,
 				5B9FB9442401F5BD00386C53 /* AppDelegate.swift in Sources */,
+				5B7F7F712483E2A80038E7CF /* AccountViewController.swift in Sources */,
 				5B9FB95F240203EB00386C53 /* Utilities.swift in Sources */,
 				5B9FB9582401F73600386C53 /* SignUpViewController.swift in Sources */,
 				5B9FB95A2401F76200386C53 /* LoginViewController.swift in Sources */,
