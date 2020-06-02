@@ -17,11 +17,8 @@ class UpdateViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    //@IBOutlet weak var documentIDLabel: UILabel!
     
     @IBOutlet weak var textLabel: UILabel!
-    
-    //@IBOutlet weak var informationTextView: UITextView!
     
     @IBOutlet weak var informationTextView: UITextView!
     
@@ -182,7 +179,7 @@ class UpdateViewController: UIViewController {
     @IBAction func updateText(_ sender: Any) {
         
         
-        let alert = UIAlertController(title: "Edit Task information", message:"Edit task information", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Task information", message:"insert a new task information", preferredStyle: .alert)
             alert.addTextField{ (textField) in
                 textField.placeholder = "Enter new information"
             }
@@ -275,14 +272,16 @@ class UpdateViewController: UIViewController {
     
     @IBAction func editTaskLabel(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Edit Task name", message:"Edit task name", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Edit title", message:"Insert a new task title.", preferredStyle: .alert)
         alert.addTextField{ (textField) in
-            textField.placeholder = "Enter new task label"
+            textField.placeholder = "Enter new task title"
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let update = UIAlertAction(title: "Update", style: .default){ _ in
             guard let text = alert.textFields?.first?.text else {return}
             print(text)
+            
+            
             
             let docRef = self.tasksCollectionRef.document(self.documentID!)
             

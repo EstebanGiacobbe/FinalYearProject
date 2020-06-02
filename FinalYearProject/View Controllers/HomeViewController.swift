@@ -212,14 +212,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let destination = segue.destination as? UpdateViewController {
             
             destination.documentID = tasksArray[todoTV.indexPathForSelectedRow!.row].documentID
-            
-            //destination.descriptions = tasksArray[todoTV.indexPathForSelectedRow!.row].description
-            
-            //destination.text = tasksArray[todoTV.indexPathForSelectedRow!.row].text
-            
-           //destination.progress = tasksArray[todoTV.indexPathForSelectedRow!.row].progress
-            
-            
         }
     }
     

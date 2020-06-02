@@ -41,11 +41,8 @@ class ViewController: UIViewController {
                 
                 self.view.window?.rootViewController = tabVC
                 self.view.window?.makeKeyAndVisible()
-                
             }
         }
-        
-        
     }
 
 

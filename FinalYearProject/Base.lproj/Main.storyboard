@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="98"/>
+            <point key="canvasLocation" x="970" y="98"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ZpY-JO-af9">
@@ -78,7 +78,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F04-op-aEB">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdO-5x-9RS">
                                         <rect key="frame" x="0.0" y="140" width="334" height="50"/>
@@ -122,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdM-GM-pPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1800" y="579"/>
+            <point key="canvasLocation" x="1800" y="498"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="kLc-Rn-GVL">
@@ -562,7 +562,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fd-aa-vDw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2976.811594202899" y="681.69642857142856"/>
+            <point key="canvasLocation" x="2871" y="644"/>
         </scene>
         <!--Nav View Controller-->
         <scene sceneID="V2q-g3-xZj">
@@ -580,7 +580,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UF6-Z2-GiY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-113" y="98"/>
+            <point key="canvasLocation" x="175" y="98"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="cH4-EV-tHj">
