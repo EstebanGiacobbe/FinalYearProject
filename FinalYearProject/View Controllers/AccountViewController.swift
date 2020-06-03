@@ -7,13 +7,26 @@
 //
 
 import UIKit
+import Firebase
 
 class AccountViewController: UIViewController {
+    
+    //private var tasksCollectionRef: CollectionReference!
+    @IBOutlet weak var accountName: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //tasksCollectionRef = Firestore.firestore().collection("users")
+        loadAccount()
+    }
+    
+    func loadAccount(){
+        
+        
+    
+    
     }
     
     

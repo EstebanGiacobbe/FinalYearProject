@@ -98,15 +98,27 @@ class TaskViewController: UIViewController {
         
         //formatting datepicker
         datePicker.datePickerMode = .date
+        print("Check date: \(datePicker.date)")
     }
+    
+    fileprivate lazy var dateFormatter1: DateFormatter = {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        //formatter.dateStyle = .medium
+        return formatter
+    }()
     
     @objc func donePressed(){
         //format text
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .none
+        //let formatter = DateFormatter()
+        //formatter.dateStyle = .medium
         
-        dateTxt.text = formatter.string(from: datePicker.date)
+        //formatter.timeStyle = .none
+        
+        
+        //dateTxt.text = formatter.string(from: datePicker.date)
+        dateTxt.text = self.dateFormatter1.string(from: datePicker.date)
         self.view.endEditing(true)
         
     }

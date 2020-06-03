@@ -95,26 +95,7 @@ class UpdateViewController: UIViewController {
     }
     
     func loadProgress(){
-        
-        /*
-        let docRef = tasksCollectionRef.document(documentID!)
-        
-        docRef.getDocument { (document, error) in
-            
-            if error == nil {
-                
-                if document != nil && document!.exists {
-                    
-                    let documentData = document!.data()
-                    
-                    let name = documentData!["name"] as? String ?? ""
-                 
-                    let texts = documentData!["text"] as? String ?? ""
-                    
-                    self.text = texts
-                }
-            }
-        }*/
+
         
         tasksCollectionRef.document(documentID!)
             .addSnapshotListener{ (querySnapshot, error) in
@@ -239,7 +220,7 @@ class UpdateViewController: UIViewController {
         
         let minutes = floor ((elapsedTime - (hours * 60 * 60)) / 60)
         
-        //print("\(Int(hours)) hr and \(Int(minutes)) min ")
+        print("\(Int(hours)) hr and \(Int(minutes)) min ")
         
         print("\(Int(minutes)) minutes taken to complete task ")
 
