@@ -716,7 +716,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7K-pd-vc7">
-                                        <rect key="frame" x="155" y="588" width="83.5" height="30"/>
+                                        <rect key="frame" x="215" y="588" width="49" height="30"/>
                                         <state key="normal" title="Upload">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -734,20 +734,30 @@
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0a-jV-FNN">
+                                        <rect key="frame" x="127" y="588" width="48" height="30"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="CancelButton:" destination="Pxn-QW-92X" eventType="touchUpInside" id="VyS-HO-mAr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="s7f-KV-sQ1" firstAttribute="top" secondItem="y7K-pd-vc7" secondAttribute="bottom" constant="8" id="1dF-j6-BPr"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="y7K-pd-vc7" secondAttribute="trailing" constant="127" id="3DF-tm-B19"/>
                                     <constraint firstItem="MxB-KC-2bC" firstAttribute="top" secondItem="HSi-LU-By9" secondAttribute="top" constant="47" id="5zT-xh-jMu"/>
                                     <constraint firstAttribute="height" constant="805" id="8iK-B2-mSR"/>
                                     <constraint firstAttribute="trailing" secondItem="zQ2-i4-ZdO" secondAttribute="trailing" constant="16" id="B8G-Ze-q0j"/>
+                                    <constraint firstItem="y7K-pd-vc7" firstAttribute="leading" secondItem="G0a-jV-FNN" secondAttribute="trailing" constant="40" id="Fea-6A-uUP"/>
+                                    <constraint firstItem="G0a-jV-FNN" firstAttribute="top" secondItem="WQv-il-ayb" secondAttribute="bottom" constant="27" id="GdX-7a-0O5"/>
                                     <constraint firstItem="Bhv-b2-qxL" firstAttribute="leading" secondItem="HSi-LU-By9" secondAttribute="leading" constant="14" id="Kqy-Yo-tWj"/>
-                                    <constraint firstItem="y7K-pd-vc7" firstAttribute="top" secondItem="WQv-il-ayb" secondAttribute="bottom" constant="27" id="QQX-62-7hP"/>
                                     <constraint firstItem="OqM-xw-EgJ" firstAttribute="leading" secondItem="HSi-LU-By9" secondAttribute="leading" constant="14" id="SNX-ZN-i2f"/>
-                                    <constraint firstItem="y7K-pd-vc7" firstAttribute="leading" secondItem="HSi-LU-By9" secondAttribute="leading" constant="155" id="TEZ-i4-StJ"/>
                                     <constraint firstItem="MxB-KC-2bC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HSi-LU-By9" secondAttribute="leading" constant="155" id="TVb-Ez-qRr"/>
                                     <constraint firstItem="OqM-xw-EgJ" firstAttribute="top" secondItem="MxB-KC-2bC" secondAttribute="bottom" constant="34" id="VFE-df-Lqy"/>
                                     <constraint firstAttribute="trailing" secondItem="MxB-KC-2bC" secondAttribute="trailing" constant="155" id="Vh7-uM-fLz"/>
+                                    <constraint firstItem="y7K-pd-vc7" firstAttribute="top" secondItem="WQv-il-ayb" secondAttribute="bottom" constant="27" id="ZCd-Cq-lFp"/>
                                     <constraint firstItem="s7f-KV-sQ1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HSi-LU-By9" secondAttribute="leading" constant="55" id="anJ-Pf-CSO"/>
                                     <constraint firstItem="WQv-il-ayb" firstAttribute="top" secondItem="Bhv-b2-qxL" secondAttribute="bottom" constant="44" id="cW4-OQ-107"/>
                                     <constraint firstAttribute="trailing" secondItem="WQv-il-ayb" secondAttribute="trailing" constant="137" id="csM-eO-22T"/>
@@ -756,9 +766,10 @@
                                     <constraint firstAttribute="trailing" secondItem="OqM-xw-EgJ" secondAttribute="trailing" constant="16" id="iNy-ml-HYu"/>
                                     <constraint firstItem="Bhv-b2-qxL" firstAttribute="top" secondItem="zQ2-i4-ZdO" secondAttribute="bottom" constant="25" id="mbf-65-6If"/>
                                     <constraint firstItem="zQ2-i4-ZdO" firstAttribute="top" secondItem="OqM-xw-EgJ" secondAttribute="bottom" constant="29" id="meB-SE-lOL"/>
+                                    <constraint firstItem="G0a-jV-FNN" firstAttribute="leading" relation="lessThanOrEqual" secondItem="HSi-LU-By9" secondAttribute="leading" constant="127" id="mkM-FC-Dh2"/>
                                     <constraint firstItem="zQ2-i4-ZdO" firstAttribute="leading" secondItem="HSi-LU-By9" secondAttribute="leading" constant="14" id="qe0-Ux-gbV"/>
                                     <constraint firstAttribute="trailing" secondItem="Bhv-b2-qxL" secondAttribute="trailing" constant="16" id="rjc-DY-ris"/>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="y7K-pd-vc7" secondAttribute="trailing" constant="152.5" id="xqA-Jw-EUb"/>
+                                    <constraint firstItem="s7f-KV-sQ1" firstAttribute="top" secondItem="y7K-pd-vc7" secondAttribute="bottom" constant="8" id="w5E-AD-WsB"/>
                                 </constraints>
                             </view>
                         </subviews>

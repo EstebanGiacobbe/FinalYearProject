@@ -147,4 +147,8 @@ class TaskViewController: UIViewController {
     }
     
     
+    @IBAction func CancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

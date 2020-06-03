@@ -10,6 +10,7 @@ import UIKit
 import FirebaseFirestore
 import Firebase
 
+//Model of my MVC design
 struct tasks: Equatable {
     var name, description: String
     var documentID: String
@@ -22,7 +23,7 @@ struct tasks: Equatable {
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-
+//Struct initialised as an array.
     var tasksArray = [tasks]()
     
     private var tasksCollectionRef: CollectionReference!
@@ -42,7 +43,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         todoTV.rowHeight = 80
         
         
-        
+        //Database reference pointing to the path tasks.
         tasksCollectionRef = Firestore.firestore().collection("Tasks")
         
         loadToDo()
@@ -52,6 +53,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         }
     
+    //This will handle the user refresh control.
     @objc func handleRefresh(){
         Timer.scheduledTimer(withTimeInterval: 1.0,repeats: false){ (timer) in
             self.todoTV.reloadData()
@@ -62,9 +64,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(true)
-        //loadToDo()
+        
     }
     
+    //Logout button, if user logs out he will be prompted to the navViewController
     @IBAction func logout(_ sender: Any) {
         
         do {
@@ -84,6 +87,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
     
+    //Retrieve data from database with a snapshotlistener
+    //Implemented to listen for any data added and modified.
     func loadToDo(){
         
         tasksCollectionRef.addSnapshotListener { (querySnapshot, error) in
@@ -105,7 +110,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let newTask = tasks(name: name, description: description, documentID: documentID, text:text, date: date, progress: progress)
                     self.tasksArray.append(newTask)
                     print(self.tasksArray)
-                    //self.iD = documentID
+                    
+                    //This will sort the array by date.
+                    self.tasksArray.sort(by: {$0.date < $1.date})
                     
                     DispatchQueue.main.async {
                         self.todoTV.reloadData()
@@ -140,8 +147,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let newTask = tasks(name: name, description: description, documentID: documentID, text:text, date: date, progress: progress)
                     self.tasksArray.append(newTask)
                     
+                    //Sort array by date when data it's modified.
+                    self.tasksArray.sort(by: {$0.date < $1.date})
                 
-                    
                     DispatchQueue.main.async {
                         self.todoTV.reloadData()
                     }
@@ -185,24 +193,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    //Delete function implementation, contains an alert from which users can confirm or cancel action.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
        
         if editingStyle == .delete{
             
-            tasksCollectionRef.document(tasksArray[indexPath.row].documentID).delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    print ("Document successfully removed!")
+            let alert = UIAlertController(title: "Delete alert!", message:"Are you sure you want to delete this task?", preferredStyle: .alert)
+        
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let confirm = UIAlertAction(title: "Confirm", style: .default){ _ in
+                
+                self.tasksCollectionRef.document(self.tasksArray[indexPath.row].documentID).delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print ("Document successfully removed!")
+                    }
                 }
+                self.tasksArray.remove(at: indexPath.row)
+                
+                self.todoTV.beginUpdates()
+                self.todoTV.deleteRows(at: [indexPath], with: .automatic)
+                self.todoTV.endUpdates()
+                
             }
-            tasksArray.remove(at: indexPath.row)
-            
-            todoTV.beginUpdates()
-            todoTV.deleteRows(at: [indexPath], with: .automatic)
-            todoTV.endUpdates()
-            
+            alert.addAction(cancel)
+            alert.addAction(confirm)
+            present(alert,animated:  true, completion: nil)
+    
         }
     }
     
