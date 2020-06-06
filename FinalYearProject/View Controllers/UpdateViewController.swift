@@ -153,39 +153,60 @@ class UpdateViewController: UIViewController {
         }
     }
     
+    let textView = UITextView(frame: CGRect.zero)
     @IBAction func updateText(_ sender: Any) {
+        let alertController = UIAlertController(title: "Task description \n\n\n\n\n", message: nil, preferredStyle: .alert)
         
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .default) {(action) in
+            alertController.view.removeObserver(self, forKeyPath: "bounds")
+        }
+        alertController.addAction(cancelAction)
         
-        let alert = UIAlertController(title: "Task information", message:"insert a new task information", preferredStyle: .alert)
-            alert.addTextField{ (textField) in
-                textField.placeholder = "Enter new information"
+        let saveAction = UIAlertAction(title: "Update", style: .default){ (action) in
+            //let textInserted = self.textView.text
+            guard let text = self.textView.text else {return}
+            
+            let docRef = self.tasksCollectionRef.document(self.documentID!)
+            
+            docRef.updateData(["text":text]) {
+            err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print ("Document updated.")
             }
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            let update = UIAlertAction(title: "Update", style: .default){ _ in
-                guard let text = alert.textFields?.first?.text else {return}
-                print(text)
-                
-                let docRef = self.tasksCollectionRef.document(self.documentID!)
-                
-                //let information = informationTextView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-                
-                docRef.updateData(["text":text]) {
-                err in
-                if let err = err {
-                    print("Error updating document: \(err)")
-                } else {
-                    print ("Document updated.")
-                }
-                }
-                
             }
-            alert.addAction(cancel)
-            alert.addAction(update)
-            present(alert,animated:  true, completion: nil)
+            alertController.view.removeObserver(self, forKeyPath: "bounds")
+        }
+        alertController.addAction(saveAction)
         
+        alertController.view.addObserver(self, forKeyPath: "bounds", options: NSKeyValueObservingOptions.new, context: nil)
+        textView.backgroundColor = UIColor.white
+        
+        textView.textContainerInset = UIEdgeInsets.init(top: 8, left: 5, bottom: 8, right: 5)
+        alertController.view.addSubview(self.textView)
+        
+        self.present(alertController, animated: true, completion: nil)
+        saveAction.isEnabled = false
+        NotificationCenter.default.addObserver(forName: UITextView.textDidChangeNotification, object: textView, queue: OperationQueue.main){(notification) in
+            saveAction.isEnabled = self.textView.text != ""
+        }
     }
     
-    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "bounds"{
+            if let rect = (change?[NSKeyValueChangeKey.newKey] as? NSValue)?.cgRectValue {
+                let margin: CGFloat = 8
+                let xPos = rect.origin.x + margin
+                let yPos = rect.origin.y + 54
+                let width = rect.width - 2 * margin
+                let height: CGFloat = 90
+
+                textView.frame = CGRect.init(x: xPos, y: yPos, width: width, height: height)
+            }
+        }
+    }
+ 
     
     @IBAction func startTask(_ sender: Any) {
         
