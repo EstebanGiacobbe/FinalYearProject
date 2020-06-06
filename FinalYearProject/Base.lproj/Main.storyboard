@@ -16,12 +16,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Vgb-SJ-fvv">
-                                <rect key="frame" x="40" y="702" width="334" height="120"/>
+                                <rect key="frame" x="40" y="388" width="334" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LCa-Ur-2su">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="6oQ-e3-fIe"/>
+                                            <constraint firstAttribute="height" constant="50" id="tGj-Dy-SHf"/>
                                         </constraints>
                                         <state key="normal" title="Sign up"/>
                                         <connections>
@@ -30,22 +30,23 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lto-4G-UDV">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="dB2-za-L2I"/>
+                                        </constraints>
                                         <state key="normal" title="Login"/>
                                         <connections>
                                             <segue destination="ndv-fR-93a" kind="show" id="khK-it-Xjw"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="lto-4G-UDV" firstAttribute="height" secondItem="LCa-Ur-2su" secondAttribute="height" id="zaI-6p-WtT"/>
-                                </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vgb-SJ-fvv" secondAttribute="bottom" constant="40" id="MES-W1-zME"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vgb-SJ-fvv" secondAttribute="trailing" constant="40" id="dHR-Mm-KPd"/>
-                            <constraint firstItem="Vgb-SJ-fvv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="zxL-gr-DAx"/>
+                            <constraint firstItem="Vgb-SJ-fvv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7Al-Mu-Z9d"/>
+                            <constraint firstItem="Vgb-SJ-fvv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9ER-wI-A6Q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vgb-SJ-fvv" secondAttribute="trailing" constant="40" id="Lau-1M-UqT"/>
+                            <constraint firstItem="Vgb-SJ-fvv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="MI7-hX-gaU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -315,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4M-ZE-lnC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4969.5652173913049" y="-182.14285714285714"/>
+            <point key="canvasLocation" x="4764" y="-94"/>
         </scene>
         <!--Update View Controller-->
         <scene sceneID="p2h-re-joC">
@@ -660,7 +661,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cro-hY-J9G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3984" y="-94"/>
+            <point key="canvasLocation" x="3970" y="-94"/>
         </scene>
         <!--Task View Controller-->
         <scene sceneID="qAI-a4-Q87">

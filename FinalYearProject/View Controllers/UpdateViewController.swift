@@ -18,8 +18,6 @@ class UpdateViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     
     
-    @IBOutlet weak var textLabel: UILabel!
-    
     @IBOutlet weak var informationTextView: UITextView!
     
     
@@ -127,8 +125,6 @@ class UpdateViewController: UIViewController {
                 } else {
                     self.checkbox.setImage(UIImage(named: "notChecked.png"), for: .normal)
                     }
-                    
-                
         }
     }
     

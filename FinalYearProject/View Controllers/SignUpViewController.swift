@@ -39,7 +39,7 @@ class SignUpViewController: UIViewController {
         //error label hidden
         errorLabel.alpha = 0
         
-        //Styling elements
+        //Style
         Utilities.styleTextField(firstNameTextField)
         Utilities.styleTextField(lastNameTextField)
         Utilities.styleTextField(emailTextField)
@@ -48,7 +48,7 @@ class SignUpViewController: UIViewController {
         
     }
     
-    //check the vields and validate that the data is okay, if everything is okay this method returns nil otherwise return error message
+    //validate fields empty and password
     func validateFields() -> String?{
         
         //check that all fields are filled in
@@ -99,7 +99,7 @@ class SignUpViewController: UIViewController {
                 }
                 else {
                     //user created successfully
-                    //reference to the firestore object
+                    //reference to firestore
                     let db = Firestore.firestore()
                     
                     //self.uid = result!.user.uid

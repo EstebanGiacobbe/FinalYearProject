@@ -121,6 +121,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if (diff.type == .removed) {
                     
                     print("Removed document: \(diff.document.data())")
+                    let alert = UIAlertController(title: "Tasks deleted", message:"Some tasks have been deleted. Update the table view", preferredStyle: .alert)
+
+                    let cancel = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        
+                    
+                    alert.addAction(cancel)
+                    self.present(alert,animated:  true, completion: nil)
                 }
                 if (diff.type == .modified){
                     

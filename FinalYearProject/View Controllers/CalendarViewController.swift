@@ -20,8 +20,7 @@ struct details {
 
 
 class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDataSource {
- 
-    
+
     
     @IBOutlet weak var calendar: FSCalendar!
     
@@ -37,6 +36,7 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
         calendar.dataSource = self
         calendar.delegate = self
+
         
         tasksCollectionRef = Firestore.firestore().collection("Tasks")
         loadEvents()
@@ -56,15 +56,15 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
                 let data = diff.document.data()
 
                 let date = data["date"] as? String ?? ""
-                let title = data["Description"] as? String ?? ""
-                let info = data["text"] as? String ?? ""
-                let member = data["name"] as? String ?? ""
+                //let title = data["Description"] as? String ?? ""
+                //let info = data["text"] as? String ?? ""
+                //let member = data["name"] as? String ?? ""
                 
                 self.eventArray.append(date)
                 
-                let newDetails = details(title: title, information: info, name: member, date: date)
+                //let newDetails = details(title: title, information: info, name: member, date: date)
                 
-                self.detailArray.append(newDetails)
+                //self.detailArray.append(newDetails)
                 
               //print("newArra: \(self.eventArray)")
 
@@ -84,9 +84,9 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
 
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
         
-        let dateString = self.dateFormatter2.string(from: date)
+        let dateToString = self.dateFormatter2.string(from: date)
 
-        if self.eventArray.contains(dateString){
+        if self.eventArray.contains(dateToString){
             return 1
         }
   
@@ -97,10 +97,9 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         
+        let dateToString = self.dateFormatter2.string(from: date)
         
-        let dateString = self.dateFormatter2.string(from: date)
-        
-        if self.eventArray.contains(dateString){
+        if self.eventArray.contains(dateToString){
         let alert = UIAlertController(title: "Tasks due", message:"Open the task board to check if you have any tasks assigned for this day.", preferredStyle: .alert)
 
             let cancel = UIAlertAction(title: "OK", style: .cancel, handler: nil)
@@ -118,4 +117,5 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
             
         }
     }
+
 }
