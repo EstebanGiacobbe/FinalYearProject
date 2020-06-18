@@ -5,13 +5,16 @@
 //  Created by Esteban Giacobbe on 22/02/2020.
 //  Copyright © 2020 Esteban Giacobbe. All rights reserved.
 //
+//  This View Controller has been created thanks to the guidance of
+//  Christopher Ching's online courses.
+//  references can be found within final year project report.
+//  Link to his website its also found in the utilities class.
+//
 
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import Firebase
-
-
 
 
 class SignUpViewController: UIViewController {
@@ -23,8 +26,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    
-    //var uid = ""
 
     
     override func viewDidLoad() {
@@ -36,10 +37,10 @@ class SignUpViewController: UIViewController {
     
     func setUpElements(){
         
-        //error label hidden
+        //this will make the error label hidden
         errorLabel.alpha = 0
         
-        //Style
+        //Style all the label within this view.
         Utilities.styleTextField(firstNameTextField)
         Utilities.styleTextField(lastNameTextField)
         Utilities.styleTextField(emailTextField)
@@ -48,7 +49,7 @@ class SignUpViewController: UIViewController {
         
     }
     
-    //validate fields empty and password
+    //This function will validate empty fields and secure password.
     func validateFields() -> String?{
         
         //check that all fields are filled in
@@ -83,14 +84,14 @@ class SignUpViewController: UIViewController {
             showError(error!)
         }
         else {
-        //create clean versions of the data
+        //this will create clean versions of the data
             let firstName = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             
-        //create the user
+        //method provided by firestore database that will allow to create a new user.
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 
                 if err != nil {
@@ -103,7 +104,7 @@ class SignUpViewController: UIViewController {
                     let db = Firestore.firestore()
                     
                     //self.uid = result!.user.uid
-                    
+                    // this will store the user within the "users" collection.
                     db.collection("users").addDocument(data: ["firstname":firstName, "lastname": lastName, "uid": result!.user.uid]) { (error) in
                         if error != nil {
                             //show error
@@ -111,7 +112,7 @@ class SignUpViewController: UIViewController {
                         }
                     }
                     
-                    //transition to the home page
+                    //finally once created a new user, transition to the home page
                     self.transitionToHome()
                     
                 }
@@ -124,10 +125,9 @@ class SignUpViewController: UIViewController {
     
     func showError (_ message:String){
         
-        //show error message
+        //show the error message label previously hidden.
         errorLabel.text = message
         errorLabel.alpha = 1
-        
     }
     
     func transitionToHome(){

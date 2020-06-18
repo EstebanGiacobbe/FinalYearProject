@@ -13,8 +13,8 @@
 		5B370DB42405383400D19CBE /* NavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B370DB32405383400D19CBE /* NavViewController.swift */; };
 		5B370DBE241AE8FE00D19CBE /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B370DBD241AE8FE00D19CBE /* TodoCell.swift */; };
 		5B7F7F712483E2A80038E7CF /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F7F702483E2A70038E7CF /* AccountViewController.swift */; };
-		5B7F7F7D2486A4AB0038E7CF /* FinalYearProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F7F7C2486A4AB0038E7CF /* FinalYearProjectTests.swift */; };
 		5B7F7F852486B43F0038E7CF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F7F842486B43F0038E7CF /* CalendarViewController.swift */; };
+		5B7F7F8D248E63120038E7CF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5B7F7F8C248E63120038E7CF /* README.md */; };
 		5B9912BD2470188F004CD6C3 /* icons8-nome-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912BC2470188F004CD6C3 /* icons8-nome-50.png */; };
 		5B9912BF2470291B004CD6C3 /* checkmarks.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912BE2470291B004CD6C3 /* checkmarks.png */; };
 		5B9912C12470482D004CD6C3 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9912C02470482D004CD6C3 /* checked.png */; };
@@ -34,16 +34,6 @@
 		5B9FB968240486C200386C53 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9FB967240486C200386C53 /* TabViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		5B7F7F7F2486A4AB0038E7CF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5B9FB9382401F5BD00386C53 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5B9FB93F2401F5BD00386C53;
-			remoteInfo = FinalYearProject;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		01AE37C38C954030699AD4FE /* Pods-FinalYearProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalYearProject.release.xcconfig"; path = "Target Support Files/Pods-FinalYearProject/Pods-FinalYearProject.release.xcconfig"; sourceTree = "<group>"; };
 		14C797C2D2A2F696C2E4A0F7 /* Pods-FinalYearProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinalYearProject.debug.xcconfig"; path = "Target Support Files/Pods-FinalYearProject/Pods-FinalYearProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -52,10 +42,10 @@
 		5B370DB32405383400D19CBE /* NavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewController.swift; sourceTree = "<group>"; };
 		5B370DBD241AE8FE00D19CBE /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TodoCell.swift; path = ../TodoCell.swift; sourceTree = "<group>"; };
 		5B7F7F702483E2A70038E7CF /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		5B7F7F7A2486A4AB0038E7CF /* FinalYearProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalYearProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7F7F7C2486A4AB0038E7CF /* FinalYearProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalYearProjectTests.swift; sourceTree = "<group>"; };
 		5B7F7F7E2486A4AB0038E7CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B7F7F842486B43F0038E7CF /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		5B7F7F8C248E63120038E7CF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5B9912BC2470188F004CD6C3 /* icons8-nome-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-nome-50.png"; sourceTree = "<group>"; };
 		5B9912BE2470291B004CD6C3 /* checkmarks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmarks.png; sourceTree = "<group>"; };
 		5B9912C02470482D004CD6C3 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
@@ -79,13 +69,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5B7F7F772486A4AA0038E7CF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5B9FB93D2401F5BD00386C53 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,6 +109,7 @@
 		5B9FB9372401F5BD00386C53 = {
 			isa = PBXGroup;
 			children = (
+				5B7F7F8C248E63120038E7CF /* README.md */,
 				5B9FB9422401F5BD00386C53 /* FinalYearProject */,
 				5B7F7F7B2486A4AB0038E7CF /* FinalYearProjectTests */,
 				5B9FB9412401F5BD00386C53 /* Products */,
@@ -138,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				5B9FB9402401F5BD00386C53 /* FinalYearProject.app */,
-				5B7F7F7A2486A4AB0038E7CF /* FinalYearProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,24 +176,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B7F7F792486A4AA0038E7CF /* FinalYearProjectTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5B7F7F812486A4AB0038E7CF /* Build configuration list for PBXNativeTarget "FinalYearProjectTests" */;
-			buildPhases = (
-				5B7F7F762486A4AA0038E7CF /* Sources */,
-				5B7F7F772486A4AA0038E7CF /* Frameworks */,
-				5B7F7F782486A4AA0038E7CF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5B7F7F802486A4AB0038E7CF /* PBXTargetDependency */,
-			);
-			name = FinalYearProjectTests;
-			productName = FinalYearProjectTests;
-			productReference = 5B7F7F7A2486A4AB0038E7CF /* FinalYearProjectTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		5B9FB93F2401F5BD00386C53 /* FinalYearProject */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B9FB9542401F5C000386C53 /* Build configuration list for PBXNativeTarget "FinalYearProject" */;
@@ -240,10 +205,6 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Esteban Giacobbe";
 				TargetAttributes = {
-					5B7F7F792486A4AA0038E7CF = {
-						CreatedOnToolsVersion = 11.5;
-						TestTargetID = 5B9FB93F2401F5BD00386C53;
-					};
 					5B9FB93F2401F5BD00386C53 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -263,19 +224,11 @@
 			projectRoot = "";
 			targets = (
 				5B9FB93F2401F5BD00386C53 /* FinalYearProject */,
-				5B7F7F792486A4AA0038E7CF /* FinalYearProjectTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5B7F7F782486A4AA0038E7CF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5B9FB93E2401F5BD00386C53 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,6 +239,7 @@
 				5B9FB96224020DD600386C53 /* GoogleService-Info.plist in Resources */,
 				5B9912C12470482D004CD6C3 /* checked.png in Resources */,
 				5B9FB94D2401F5C000386C53 /* Assets.xcassets in Resources */,
+				5B7F7F8D248E63120038E7CF /* README.md in Resources */,
 				5B9912C324704838004CD6C3 /* notChecked.png in Resources */,
 				5B9FB94B2401F5BD00386C53 /* Main.storyboard in Resources */,
 			);
@@ -336,14 +290,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5B7F7F762486A4AA0038E7CF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5B7F7F7D2486A4AB0038E7CF /* FinalYearProjectTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5B9FB93C2401F5BD00386C53 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,14 +314,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		5B7F7F802486A4AB0038E7CF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5B9FB93F2401F5BD00386C53 /* FinalYearProject */;
-			targetProxy = 5B7F7F7F2486A4AB0038E7CF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		5B9FB9492401F5BD00386C53 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -396,48 +334,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5B7F7F822486A4AB0038E7CF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GXXB4PR463;
-				INFOPLIST_FILE = FinalYearProjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.estebangiacobbe.FinalYearProjectTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinalYearProject.app/FinalYearProject";
-			};
-			name = Debug;
-		};
-		5B7F7F832486A4AB0038E7CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GXXB4PR463;
-				INFOPLIST_FILE = FinalYearProjectTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.estebangiacobbe.FinalYearProjectTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FinalYearProject.app/FinalYearProject";
-			};
-			name = Release;
-		};
 		5B9FB9522401F5C000386C53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -593,15 +489,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B7F7F812486A4AB0038E7CF /* Build configuration list for PBXNativeTarget "FinalYearProjectTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5B7F7F822486A4AB0038E7CF /* Debug */,
-				5B7F7F832486A4AB0038E7CF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5B9FB93B2401F5BD00386C53 /* Build configuration list for PBXProject "FinalYearProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

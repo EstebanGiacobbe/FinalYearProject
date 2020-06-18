@@ -5,6 +5,10 @@
 //  Created by Esteban Giacobbe on 22/02/2020.
 //  Copyright © 2020 Esteban Giacobbe. All rights reserved.
 //
+//  This View Controller has been created thanks to the guidance of
+//  Christopher Ching's online courses.
+//  references can be found within final year project report.
+//  Link to his website its also found in the utilities class.
 
 import UIKit
 import FirebaseAuth
@@ -56,8 +60,6 @@ class LoginViewController: UIViewController {
                 self.errorLabel.alpha = 1
             }
             else {
-                  
-                
                 let tabVC = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.tabViewController) as? TabViewController
                 
                 self.view.window?.rootViewController = tabVC

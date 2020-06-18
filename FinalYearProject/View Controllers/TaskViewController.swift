@@ -48,7 +48,8 @@ class TaskViewController: UIViewController {
 
     }
     
-
+// fields are validated in the same way as it's done within the sign up view controller.
+    // if they are not empty then a new task can be created.
     @IBAction func uploadButton(_ sender: Any) {
         
         let error = validateFields()
@@ -98,14 +99,13 @@ class TaskViewController: UIViewController {
         
         //formatting datepicker
         datePicker.datePickerMode = .date
-        print("Check date: \(datePicker.date)")
+        print("date: \(datePicker.date)")
     }
     
-    fileprivate lazy var dateFormatter1: DateFormatter = {
+    fileprivate lazy var formattingDate: DateFormatter = {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
-        //formatter.dateStyle = .medium
         return formatter
     }()
     
@@ -118,7 +118,7 @@ class TaskViewController: UIViewController {
         
         
         //dateTxt.text = formatter.string(from: datePicker.date)
-        dateTxt.text = self.dateFormatter1.string(from: datePicker.date)
+        dateTxt.text = self.formattingDate.string(from: datePicker.date)
         self.view.endEditing(true)
         
     }

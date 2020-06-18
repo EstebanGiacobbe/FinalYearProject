@@ -120,6 +120,7 @@ class UpdateViewController: UIViewController {
                 let description = data["Description"] as? String ?? ""
                 self.descriptionLabel.text = description
                 
+                //this will set the image for the checkmark depending on the progress label
                 if self.progressLabel.text == "Done" {
                     self.checkbox.setImage(UIImage(named: "checked.png"), for: .normal)
                 } else {
@@ -128,7 +129,7 @@ class UpdateViewController: UIViewController {
         }
     }
     
-    
+    //updatedata method will be referenced in report, method provided by firestore.
     @IBAction func checkbox(_ sender: Any) {
         
         let docRef = tasksCollectionRef.document(documentID!)
@@ -153,6 +154,11 @@ class UpdateViewController: UIViewController {
         }
     }
     
+    //text view implemented in an alert view to edit the task information.
+    //https://stackoverflow.com/questions/28603060/how-to-use-uitextview-in-uialertcontroller
+    //this stackoverflow discussion helped to come to a solution on how to include a text view
+    //within the alert view.
+    //
     let textView = UITextView(frame: CGRect.zero)
     @IBAction func updateText(_ sender: Any) {
         let alertController = UIAlertController(title: "Task description \n\n\n\n\n", message: nil, preferredStyle: .alert)
@@ -207,7 +213,8 @@ class UpdateViewController: UIViewController {
         }
     }
  
-    
+    //Stackoverflow assisted me with this function
+    //at: https://stackoverflow.com/questions/44742290/time-stamp-from-a-button/44742343
     @IBAction func startTask(_ sender: Any) {
         
         let time1 = Date()
@@ -221,7 +228,11 @@ class UpdateViewController: UIViewController {
     }
     
     
+    //implemented thanks to the help of a stackoverflow discussion.
+    //https://stackoverflow.com/questions/51033529/calculate-time-difference-in-swift-4
     @IBAction func finishTask(_ sender: Any) {
+      
+            
         let time2 = Date()
         let formatter = DateFormatter()
         formatter.timeStyle = .short
@@ -232,8 +243,10 @@ class UpdateViewController: UIViewController {
         let date2 = formatter.date(from: startTime.text!)!
         
         let elapsedTime = time2.timeIntervalSince(date2)
+
+        print("elapsed: \(elapsedTime)")
         
-        let hours = floor(elapsedTime / 60 / 60)
+        let hours = floor(elapsedTime / 60 / 60 )
         
         let minutes = floor ((elapsedTime - (hours * 60 * 60)) / 60)
         
@@ -245,6 +258,8 @@ class UpdateViewController: UIViewController {
         
         timeToFireStore()
     }
+
+   
     
     func timeToFireStore(){
         
@@ -297,3 +312,4 @@ class UpdateViewController: UIViewController {
         present(alert,animated:  true, completion: nil)
     }
 }
+

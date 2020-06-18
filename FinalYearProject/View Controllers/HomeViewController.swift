@@ -10,7 +10,7 @@ import UIKit
 import FirebaseFirestore
 import Firebase
 
-//Model of my MVC design
+//Model of my MVC design architecture
 struct tasks: Equatable {
     var name, description: String
     var documentID: String
@@ -88,7 +88,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     
     //Retrieve data from database with a snapshotlistener
-    //Implemented to listen for any data added and modified.
+    //Implemented to listen for any data added, modified and deleted.
     func loadToDo(){
         
         tasksCollectionRef.addSnapshotListener { (querySnapshot, error) in
@@ -121,13 +121,21 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if (diff.type == .removed) {
                     
                     print("Removed document: \(diff.document.data())")
-                    let alert = UIAlertController(title: "Tasks deleted", message:"Some tasks have been deleted. Update the table view", preferredStyle: .alert)
-
-                    let cancel = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                        
+                   
                     
-                    alert.addAction(cancel)
-                    self.present(alert,animated:  true, completion: nil)
+                    let documentID = diff.document.documentID
+                    //Index pointing to the document with the same ID as the modified file.
+                    guard let oldDocIndex = self.tasksArray.firstIndex(where: {$0.documentID == documentID}) else {return}
+                    let indexToDelete = self.tasksArray[oldDocIndex]
+                    
+                    //remove the current task containing the same ID as the modified file.
+                    if let index = self.tasksArray.firstIndex(of: indexToDelete) {
+                        self.tasksArray.remove(at: index)
+                    }
+                    DispatchQueue.main.async {
+                        self.todoTV.reloadData()
+                    }
+                    
                 }
                 if (diff.type == .modified){
                     
@@ -232,6 +240,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    // this will allow updateviewcontroller to access documentID of a selected task.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
